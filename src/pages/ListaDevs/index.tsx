@@ -39,9 +39,9 @@ const[listaDevsFiltrados, setListaDevsFiltrados] = useState<any[]>(devs);
 
 useEffect(() => {
     document.title = "Lista de Devs - VSConnect"
-    
+        
     listarDesenvolvedores()
-    
+
 },[])
 
 function buscarPorSkill(event:any){
@@ -88,8 +88,19 @@ function listarDesenvolvedores(){
                 </form>
                 <div className="wrapper_lista">
                     <ul>
-                        {devs.map((dev:any, index:number) => {
-                            return <li>
+                        {
+                        listaDevsFiltrados.length===0 ? 
+                          devs.map((dev:any, index:number) => {
+                            return <li key={index}>
+                                <CradDev
+                                foto={dev.user_img}
+                                nome={dev.nome}
+                                email={dev.email}
+                                techs={dev.hardSkills}
+                                />
+                            </li>  
+                          }) :  listaDevsFiltrados.map((dev:any, index:number) => {
+                            return <li key={index}>
                                 <CradDev
                                 foto={dev.user_img}
                                 nome={dev.nome}
@@ -97,8 +108,8 @@ function listarDesenvolvedores(){
                                 techs={dev.hardSkills}
                                 />
                             </li>
+                            })
                         }
-                        )}
                     </ul>
                 </div>
             </div>
