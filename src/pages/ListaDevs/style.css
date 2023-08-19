@@ -15,6 +15,11 @@
     --font2: 'Titillium Web', sans-serif;
 }
 
+.wrapper_lista{
+    text-decoration: none;
+    color: white;
+}
+
 /* MAIN */
 main {
     background-image:

@@ -3,6 +3,7 @@ import CradDev from "../../components/CardDev"
 import "./style.css"
 import api from "../../utils/api"
 
+
 export default function ListaDevs(){
 
 const[devs, setDevs] = useState<any[]>([
@@ -93,6 +94,7 @@ function listarDesenvolvedores(){
                           devs.map((dev:any, index:number) => {
                             return <li key={index}>
                                 <CradDev
+                                id={dev.id}
                                 foto={dev.user_img}
                                 nome={dev.nome}
                                 email={dev.email}
@@ -100,8 +102,9 @@ function listarDesenvolvedores(){
                                 />
                             </li>  
                           }) :  listaDevsFiltrados.map((dev:any, index:number) => {
-                            return <li key={index}>
+                            return <li key={index} >
                                 <CradDev
+                                id={dev.id}
                                 foto={dev.user_img}
                                 nome={dev.nome}
                                 email={dev.email}
